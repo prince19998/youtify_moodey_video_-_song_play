@@ -1,0 +1,27 @@
+ {% extends "base.html" %}
+
+{% block title %}Search - Youtify{% endblock %}
+
+{% block content %}
+<section class="search-results">
+    <h2>Search Results for "{{ query }}"</h2>
+    <div class="video-list">
+        {% for video in results %}
+        <div class="video-item">
+            <a href="/watch/{{ video.id }}">
+                <img src="{{ video.thumbnail }}" alt="{{ video.title }}">
+                <div class="info">
+                    <h3>{{ video.title }}</h3>
+                    <p>{{ video.channel }}</p>
+                    <span class="duration">{{ video.duration }}</span>
+                    <p class="description">{{ video.description|truncate(150) }}</p>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %} 
+
+
+

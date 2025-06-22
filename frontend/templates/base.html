@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtify - {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="/"><i class="fas fa-music"></i> Youtify</a>
+        </div>
+        <div class="search">
+            <form action="/search" method="get">
+                <input type="text" name="q" placeholder="Search for songs or videos...">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#"><i class="fas fa-compass"></i> Explore</a></li>
+                <li><a href="#"><i class="fas fa-bookmark"></i> Library</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    
+    <footer>
+        <div class="player-controls">
+            <div class="song-info">
+                <img id="now-playing-thumb" src="https://via.placeholder.com/50" alt="Now Playing">
+                <div>
+                    <span id="now-playing-title">No song selected</span>
+                    <span id="now-playing-artist">-</span>
+                </div>
+            </div>
+            <div class="controls">
+                <button><i class="fas fa-step-backward"></i></button>
+                <button><i class="fas fa-play"></i></button>
+                <button><i class="fas fa-step-forward"></i></button>
+            </div>
+            <div class="progress">
+                <span class="time">0:00</span>
+                <input type="range" id="progress-bar" min="0" max="100" value="0">
+                <span class="time">0:00</span>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
